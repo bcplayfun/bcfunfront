@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use './variables';
+
+@mixin up($breakpoint) {
+	@if map.get(variables.$grid-breakpoints, $breakpoint) {
+		@media only screen and (min-width: map.get(variables.$grid-breakpoints, $breakpoint)) {
+			@content;
+		}
+	} @else {
+		@media only screen and (min-width: $breakpoint) {
+			@content;
+		}
+	}
+}
+
+@mixin down($breakpoint) {
+	@if map.get(variables.$grid-breakpoints, $breakpoint) {
+		@media only screen and (max-width: map.get(variables.$grid-breakpoints, $breakpoint)) {
+			@content;
+		}
+	} @else {
+		@media only screen and (max-width: $breakpoint) {
+			@content;
+		}
+	}
+}

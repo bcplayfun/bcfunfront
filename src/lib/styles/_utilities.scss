@@ -1,0 +1,216 @@
+@use "./variables" as *;
+@use "./functions" as *;
+@use "./media";
+
+@each $gap in $gaps {
+  .gap-#{$gap} {
+    gap: $gap + px;
+  }
+}
+
+@each $space in $spaceAmounts {
+  @if $space==auto {
+    .m-#{$space} {
+      margin: #{$space};
+    }
+
+    .mx-#{$space} {
+      margin-left: #{$space};
+      margin-right: #{$space};
+    }
+
+    .my-#{$space} {
+      margin-top: #{$space};
+      margin-bottom: #{$space};
+    }
+
+    .ms-#{$space} {
+      margin-left: #{$space};
+    }
+
+    .me-#{$space} {
+      margin-right: #{$space};
+    }
+
+    .mb-#{$space} {
+      margin-bottom: #{$space};
+    }
+
+    .mt-#{$space} {
+      margin-top: #{$space};
+    }
+  } @else {
+    .m-#{$space} {
+      margin: rem($space);
+    }
+
+    .mx-#{$space} {
+      margin-left: rem($space);
+      margin-right: rem($space);
+    }
+
+    .my-#{$space} {
+      margin-top: rem($space);
+      margin-bottom: rem($space);
+    }
+
+    .ms-#{$space} {
+      margin-left: rem($space);
+    }
+
+    .me-#{$space} {
+      margin-right: rem($space);
+    }
+
+    .mb-#{$space} {
+      margin-bottom: rem($space);
+    }
+
+    .mt-#{$space} {
+      margin-top: rem($space);
+    }
+
+    .p-#{$space} {
+      padding: rem($space);
+    }
+
+    .px-#{$space} {
+      padding-left: rem($space);
+      padding-right: rem($space);
+    }
+
+    .py-#{$space} {
+      padding-top: rem($space);
+      padding-bottom: rem($space);
+    }
+
+    .ps-#{$space} {
+      padding-left: rem($space);
+    }
+
+    .pe-#{$space} {
+      padding-right: rem($space);
+    }
+
+    .pb-#{$space} {
+      padding-bottom: rem($space);
+    }
+
+    .pt-#{$space} {
+      padding-top: rem($space);
+    }
+  }
+}
+
+@each $align in $alignments {
+  .justify-#{$align} {
+    justify-content: #{$align};
+  }
+
+  .items-#{$align} {
+    align-items: #{$align};
+  }
+
+  .justify-items-#{$align} {
+    justify-items: #{$align};
+  }
+
+  .content-#{$align} {
+    align-content: #{$align};
+  }
+
+  .flex-#{$align} {
+    flex-direction: #{$align};
+  }
+}
+
+@each $position in $positions {
+  .position-#{$position} {
+    position: #{$position};
+  }
+}
+
+@each $disp in $displayProps {
+  .d-#{$disp} {
+    display: #{$disp};
+  }
+}
+
+@each $textAlign in $textAlignments {
+  .text-#{$textAlign} {
+    text-align: #{$textAlign};
+  }
+}
+
+@each $size in $font-sizes {
+  .text-#{$size} {
+    font-size: rem($size);
+  }
+}
+
+@each $weight in $font-weights {
+  .weight-#{$weight} {
+    font-weight: $weight;
+  }
+}
+
+@each $color in $colors {
+  .color-#{$color} {
+    color: $color;
+  }
+}
+
+@each $breakpoint, $val in $grid-breakpoints {
+  @each $display in $breakpointedDisplayProps {
+    .up-#{$breakpoint}-#{$display} {
+      @include media.up($breakpoint) {
+        display: $display;
+      }
+    }
+
+    .down-#{$breakpoint}-#{$display} {
+      @include media.down($breakpoint) {
+        display: $display;
+      }
+    }
+  }
+}
+
+.container {
+  width: calc(100% - 32px);
+  max-width: 1350px;
+}
+
+.container-fluid {
+  width: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.hide-scrollbar {
+  // scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-color: transparent;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.hide-scrollbar--u {
+  // scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-color: transparent;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

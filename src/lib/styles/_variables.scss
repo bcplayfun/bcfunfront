@@ -1,0 +1,46 @@
+$font-sizes: (10, 12, 14, 16, 18, 22, 24);
+$spaceAmounts: (2, 4, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 32, 40, auto);
+$gaps: (2, 4, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30);
+$alignments: (
+  "center",
+  "space-between",
+  "space-around",
+  "space-evenly",
+  "flex-start",
+  "flex-end",
+  "column",
+  "column-reverse",
+  "row",
+  "row-reverse"
+);
+$displayProps: (
+  "block",
+  "inline-block",
+  "inline",
+  "flex",
+  "grid",
+  "inline-flex",
+  "inline-grid",
+  "table",
+  "inline-table",
+  "list-item",
+  "none",
+  "contents"
+);
+$breakpointedDisplayProps: (block, flex, none);
+$textAlignments: ("left", "right", "center", "revert");
+$positions: ("absolute", "relative", "static", "sticky");
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$font-weights: (100, 200, 300, 400, 500, 600, 700, 800, 900, bold, bolder);
+
+$colors: (
+  marigold: #ffbb00,
+);

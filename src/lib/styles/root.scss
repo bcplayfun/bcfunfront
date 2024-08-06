@@ -1,0 +1,316 @@
+@use "./fonts";
+@use "./functions";
+@use "./reset";
+@use "./utilities";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html,
+body {
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  color: white;
+  font-style: normal;
+  font-weight: 400;
+  background: var(--layer-0);
+  &.unscrollable {
+    overflow: hidden;
+  }
+}
+
+a,
+.link {
+  color: #00bc3d;
+  text-decoration: underline;
+  transition: filter 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+input,
+button {
+  outline: none;
+  outline-offset: 0;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.skeleton {
+  background-color: var(--skeleton-color) !important;
+  // The shine that's going to move across the skeleton:
+  // background-image: linear-gradient(
+  //   90deg,
+  //   rgba(#323746, 0),
+  //   rgba(#323746, 0.5),
+  //   rgba(#323746, 0)
+  // ) !important;
+  background-size: 40px 100% !important; // width of the shine
+  background-repeat: no-repeat !important; // No need to repeat the shine effect
+  background-position: left -40px top 0; // Place shine on the left side, with offset on the left based on the width of the shine - see background-size
+  // animation: shine 1s ease infinite; // increase animation time to see effect in 'slow-mo'
+  color: transparent;
+  border-radius: 8px;
+  position: relative;
+
+  // &:before {
+  //   content: "";
+  //   width: 100px;
+  //   height: 60px;
+  //   background-image: url("https://BCFUN.com/_app/immutable/assets/logo.f50e5378.png");
+  //   background-size: contain;
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //   color: white;
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   margin: auto;
+  //   text-transform: uppercase;
+  //   color: var(--brand-primary);
+  //   font-weight: 700;
+  //   opacity: 0.2;
+  // }
+  // &.nologo:before {
+  //   display: none;
+  // }
+}
+
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+
+.expandable-wrapper_content strong {
+  pointer-events: none;
+}
+
+.section-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  h1,
+  h2 {
+    min-height: 27px;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--section-header-title-color);
+  }
+  p {
+    margin: 5px 0 0;
+    padding: 0;
+    min-height: 17px;
+    font-size: 15px;
+    color: var(--section-header-subtitle-color);
+  }
+}
+
+hr {
+  margin: 45px 0;
+  border: none;
+  border-top: 1px solid var(--hr-color);
+}
+
+.games--expanded .item,
+.games--filtered .item,
+.promotions--expanded .promotion {
+  width: 100% !important;
+}
+
+.text-column {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cp-grey-dark-2);
+  width: 100%;
+  padding: 50px;
+  margin-top: 30px;
+  border-radius: 8px;
+  @media (max-width: 992px) {
+    padding: 25px;
+  }
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+  p {
+    color: var(--gray);
+    margin: 8px 0;
+  }
+  h2 {
+    font-size: 20px;
+    color: white;
+    margin: 8px 0;
+  }
+  .bold {
+    color: white;
+    font-weight: 600;
+  }
+}
+
+.splide__slide.is-active .banner .foreground,
+.splide__slide.is-active .banner .background {
+  animation-play-state: running !important;
+}
+
+.intercom-lightweight-app-launcher {
+  @media (max-width: 992px) {
+    bottom: 80px !important;
+    right: 15px !important;
+  }
+}
+
+.grecaptcha-badge {
+  display: none !important;
+}
+
+.bonus-wager-container .types {
+  display: none !important;
+}
+
+.heart {
+  border-radius: 9px;
+  z-index: 2;
+  cursor: pointer;
+  &:hover {
+    .heart-svg {
+      fill: white !important;
+    }
+    .favorited .heart-svg {
+      fill: white !important;
+    }
+  }
+}
+.heart-svg {
+  fill: transparent !important;
+}
+.favorited .heart-svg {
+  fill: white !important;
+}
+.favorited:hover {
+  .heart-svg {
+    fill: white !important;
+  }
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.component-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  height: 33px;
+}
+//
+:root {
+  --layer-0: #101010;
+  --layer-1: #232c3b;
+  --text-primary: #f5faff;
+  --text-secondary: #b6bcc4;
+  --input-primary: #2d3c51;
+  --input-primary-highlight: #394f69;
+  --brand-primary: #00bc3d;
+  --brand-primary-highlight: rgb(38, 77, 121);
+  --brand-secondary: rgb(0, 139, 44);
+  --brand-secondary-highlight: #294e79;
+  --brand-third: #18536c;
+  --brand-primary-2: #126889;
+  --red: #fa5051;
+  --green: #30b715;
+  --white: #ffffff;
+  --black: #000000;
+  --overlay: #090d11;
+  --gray: #9698a1;
+  --cp-white: #ffffff;
+  --cp-black: #000000;
+  --cp-grey-light: #f4f5f6;
+  --cp-grey-light-2: #323746;
+  --cp-grey: #e0e0e0;
+  --cp-light: #aeb2bc;
+  --cp-grey-dark-1: #797979;
+  --cp-grey-dark-2: #222831;
+  --cp-blue-light: #ebf5ff;
+  --cp-blue-dark: #3089e5;
+  --cp-green-light: #e5f9f1;
+  --cp-green: #93d343;
+  --cp-green-dark: #60ab2e;
+  --cp-red-light: #fae0e1;
+  --cp-red: #e7666a;
+  --cp-dark-red: #e72f35;
+  --cp-yellow: #f8de22;
+  --cp-pink: #e093bb;
+  --dialog-background-color: #101010;
+  --skeleton-color: #131521;
+  --sidebar-bg-color: #282d3a;
+  --dropdown-indicator-color: #9698a1;
+  --hr-color: #323746;
+  --top-bar-dropdown-text-color: #ffffff;
+  --top-bar-dropdown-hover-bg-color: rgba(255, 255, 255, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --topbar-dropdown-border-color: rgba(9, 11, 15, 0.5);
+  --section-header-title-color: #ffffff;
+  --section-header-subtitle-color: #9698a1;
+  --panel-background-color-primary: #222831;
+  --text-color-primary: #ffffff;
+  --text-color-secondary: #9698a1;
+  --file-input-border-color: rgba(255, 255, 255, 0.2);
+  --color-primary: var(--brand-primary);
+  --input-background-color: #222831;
+  --input-border-color: rgba(255, 255, 255, 0.1);
+  --input-hover-color: #95979d;
+  --settings-details-key-color: #9698a1;
+  --settings-details-value-color: #e8e6e3;
+  --panel-background-color-primary: #222831;
+  --section-header-title-color: #ffffff;
+  --section-header-subtitle-color: #9698a1;
+  --settings-subtitle-color: #797979;
+  --tab-bg-color: #222831;
+  --tab-hover-bg-color: var(--brand-primary);
+  --tab-text-color: #9698a1;
+  --tab-hover-text-color: #ffffff;
+  --accordion-border-color: rgba(255, 255, 255, 0.1);
+  --empty-border-color: rgba(255, 255, 255, 0.1);
+  --table-border-color: rgba(255, 255, 255, 0.1);
+  --table-row-background-color: #222831;
+  --top-bar-balance-bg-color: #222831;
+  --top-bar-balance-bg-hover-color: transparent;
+  --top-bar-balance-border-color: #323746;
+  --top-bar-balance-border-hover-color: #323746;
+  --panel-background-color-primary: #222831;
+  --panel-background-color-secondary: #222831;
+  --panel-background-color-highlighted: #222831;
+  --section-header-title-highlighted-color: #ffffff;
+  --section-header-subtitle-highlighted-color: #9698a1;
+  --wallet-segment-amount-bg-color: #323746;
+  --wallet-segment-amount-highlighted-bg-color: #42a2f9;
+  --wallet-segment-action-highlighted-bg-color: #ffffff;
+  --wallet-segment-action-hover-highlighted-bg-color: #dedfe3;
+  --button-link-hover-color: #18acf0;
+  --provider-tile-bg: #222831;
+  --provider-tile-selected: var(--brand-primary);
+  --chip-bg-color: #222831;
+  --chip-text-color: #9698a1;
+  --provider-tile-bg: #222831;
+  --provider-tile-selected: var(--brand-primary);
+  --search-vendor-color: #9698a1;
+  --brand-stroke: #555b6a;
+  --brand-padding-x: 5px 15px 0;
+
+  --color-1: #186cb8;
+  --color-2: #2a9a9f;
+  --orange: #d96208;
+  --mint: #1fada2;
+  --yellow: #d99e08;
+  --highlight: #394f69;
+}
